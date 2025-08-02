@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+.omikuji-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+.omikuji-paper {
+    background: linear-gradient(45deg, #f9f9f9, #fff);
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.omikuji-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    animation: shimmer 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.paper-content {
+    text-align: center;
+    width: 100%;
+}
+
+.fortune-result {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.result-placeholder {
+    opacity: 0.6;
+}
+
+.placeholder-text {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.fortune-level {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.fortune-text {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.fortune-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.draw-button, .reset-button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.reset-button {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.draw-button:hover, .reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.draw-button:active, .reset-button:active {
+    transform: translateY(0);
+}
+
+.button-icon {
+    font-size: 1.2rem;
+}
+
+.fortune-details {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fortune-details h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.detail-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.fortune-message {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ffc107;
+}
+
+.fortune-message h4 {
+    color: #856404;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.fortune-message p {
+    color: #856404;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+footer {
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* 運勢レベルに応じた色分け */
+.fortune-daikichi { color: #e74c3c; }
+.fortune-chukichi { color: #f39c12; }
+.fortune-shokichi { color: #f1c40f; }
+.fortune-kichi { color: #27ae60; }
+.fortune-kyo { color: #8e44ad; }
+.fortune-daikyo { color: #2c3e50; }
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .omikuji-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .omikuji-paper {
+        padding: 1.5rem;
+        min-height: 150px;
+    }
+    
+    .fortune-result {
+        font-size: 1.5rem;
+    }
+    
+    .fortune-level {
+        font-size: 2.5rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .draw-button, .reset-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+} 
